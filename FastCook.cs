@@ -24,6 +24,26 @@ public class FastCook : Mod
     
 }
 
+[HarmonyPatch(typeof(Bowl))]
+class FastBoilPatch
+{
+    [HarmonyPrefix]
+    [HarmonyPatch("UpdateState")]
+    static bool UpdateStatePre(Bowl __instance)
+    {
+        __instance.m_CookingLength = 1.0f;
+        return true;
+    }
+    
+    [HarmonyPostfix]
+    [HarmonyPatch("UpdateState")]
+    static void UpdateStatePost(Bowl __instance)
+    {
+        __instance.m_CookingLength = 10.0f;
+    }
+    
+}
+
 [HarmonyPatch(typeof(FoodProcessor))]
 class FastCookPatch {
     
