@@ -51,6 +51,7 @@ class FastCookPatch {
                 Debug.Log(__instance.m_Type);
                 __result = 0f;
                 break;
+
         }
         return false;
     }
