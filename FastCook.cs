@@ -34,14 +34,7 @@ class FastBoilPatch
         __instance.m_CookingLength = 1.0f;
         return true;
     }
-    
-    [HarmonyPostfix]
-    [HarmonyPatch("UpdateState")]
-    static void UpdateStatePost(Bowl __instance)
-    {
-        __instance.m_CookingLength = 10.0f;
-    }
-    
+
 }
 
 [HarmonyPatch(typeof(FoodProcessor))]
